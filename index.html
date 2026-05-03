@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wethaq.AI</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="module">
+    import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+    window.Client = Client;
+  </script>
+</head>
+
+<body>
+  <main class="container">
+
+    <section class="hero">
+      <div class="badge">Verified Sources Only</div>
+      <h1>Wethaq.AI</h1>
+      <p>
+        Ask questions directly from trusted university course materials.
+        Every answer is grounded in verified academic sources.
+      </p>
+    </section>
+
+    <section class="chat-card">
+      <label>Choose Course</label>
+      <select id="course">
+        <option>AI Basics</option>
+        <option>NLP</option>
+        <option>Project Management</option>
+      </select>
+
+      <label>Ask Your Question</label>
+      <textarea id="question" placeholder="Example: What is inference?"></textarea>
+
+      <button onclick="askQuestion()">Ask Wethaq.AI</button>
+    </section>
+
+    <section id="answerCard" class="answer-card hidden">
+      <h2>Clear Answer</h2>
+      <div id="answerText" class="answer-box"></div>
+
+      <h2>Citation</h2>
+      <div id="citationText" class="citation-box"></div>
+
+      <details>
+        <summary>View original retrieved source</summary>
+        <div id="sourceText" class="source-box"></div>
+      </details>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
