@@ -38,7 +38,9 @@ async function askQuestion() {
     answerText.innerHTML = answer;
     citationText.innerText = citation;
     sourceText.innerText = source;
-
+function setQuestion(text) {
+  document.getElementById("question").value = text;
+}
   } catch (error) {
     answerText.innerHTML = "⚠️ Could not connect. Make sure your Colab is running.";
     citationText.innerText = "";
