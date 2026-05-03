@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Wethaq.AI</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
   <script type="module">
     import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
@@ -12,44 +12,76 @@
 </head>
 
 <body>
-  <main class="container">
+  <div class="bg-shape one"></div>
+  <div class="bg-shape two"></div>
 
+  <main class="container">
     <section class="hero">
       <div class="badge">Verified Sources Only</div>
       <h1>Wethaq.AI</h1>
-      <p>
-        Ask questions directly from trusted university course materials.
-        Every answer is grounded in verified academic sources.
-      </p>
+      <p>Ask academic questions from trusted course materials and get clear answers with citations.</p>
     </section>
 
-    <section class="chat-card">
-      <label>Choose Course</label>
-      <select id="course">
-        <option>AI Basics</option>
-        <option>NLP</option>
-        <option>Project Management</option>
-      </select>
+    <section class="panel">
+      <div class="left-card">
+        <h2>Ask your course assistant</h2>
+        <p class="mini-text">Choose a course, ask a question, and Wethaq.AI searches verified sources.</p>
 
-      <label>Ask Your Question</label>
-      <textarea id="question" placeholder="Example: What is inference?"></textarea>
+        <label>Course</label>
+        <select id="course">
+          <option>Natural Language Processing</option>
+          <option>AI Basics</option>
+          <option>Project Management</option>
+        </select>
 
-      <button onclick="askQuestion()">Ask Wethaq.AI</button>
+        <label>Question</label>
+        <textarea id="question" placeholder="Example: What is a stem?"></textarea>
+
+        <div class="quick-buttons">
+          <button type="button" onclick="setQuestion('What is a stem?')">What is a stem?</button>
+          <button type="button" onclick="setQuestion('What is inference?')">What is inference?</button>
+          <button type="button" onclick="setQuestion('Explain BFS simply')">Explain BFS</button>
+        </div>
+
+        <button class="ask-btn" onclick="askQuestion()">Ask Wethaq.AI ✨</button>
+      </div>
+
+      <div class="right-card">
+        <h3>Why Wethaq.AI?</h3>
+
+        <div class="feature">
+          <span>📚</span>
+          <p>Uses preloaded verified academic sources.</p>
+        </div>
+
+        <div class="feature">
+          <span>🔎</span>
+          <p>Searches inside trusted materials before answering.</p>
+        </div>
+
+        <div class="feature">
+          <span>📌</span>
+          <p>Shows citations from the source.</p>
+        </div>
+      </div>
     </section>
 
     <section id="answerCard" class="answer-card hidden">
-      <h2>Clear Answer</h2>
+      <div class="answer-header">
+        <h2>Wethaq Answer</h2>
+        <span class="verified-pill">Grounded Response</span>
+      </div>
+
       <div id="answerText" class="answer-box"></div>
 
-      <h2>Citation</h2>
+      <h3>Citation</h3>
       <div id="citationText" class="citation-box"></div>
 
       <details>
-        <summary>View original retrieved source</summary>
+        <summary>View retrieved source text</summary>
         <div id="sourceText" class="source-box"></div>
       </details>
     </section>
-
   </main>
 
   <script src="script.js"></script>
