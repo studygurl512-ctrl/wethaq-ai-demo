@@ -1,4 +1,4 @@
-const GRADIO_LINK = "https://e62735c7fb38762446.gradio.live";
+const GRADIO_LINK = "https://7f0e38ca293505af91.gradio.live";
 
 async function askQuestion() {
   const question = document.getElementById("question").value;
